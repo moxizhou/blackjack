@@ -5,6 +5,9 @@ class window.Hand extends Backbone.Collection
   initialize: (array, @deck, @isDealer) ->
     @on 'hit', @checkIfBust
 
+  stand: ->
+    debugger;
+    @trigger 'stand'
   hit: ->
     @add(@deck.pop()).last()
     @trigger 'hit'
@@ -28,3 +31,6 @@ class window.Hand extends Backbone.Collection
 
   hasCovered: ->
     !@at(0).get 'revealed'
+
+  trueScore: ->
+    if @scores()[1] < 22 then @scores()[1] else @scores()[0]

@@ -8,6 +8,7 @@
 }
 
 .covered {
+  background-image: url('../img/cards/card-back.png');
   background-color: black;
 }
 
