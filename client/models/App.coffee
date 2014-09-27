@@ -15,8 +15,6 @@ class window.App extends Backbone.Model
     dealerHand.on 'bust', =>
       @declareWinner('player')
     dealerHand.on 'stand', =>
-      debugger;
-      #never happems :(
       winner = @decideWinner()
       @declareWinner(winner)
 
@@ -28,13 +26,15 @@ class window.App extends Backbone.Model
 
     #always use highest score, if highest score busts,
     #then use lowest score
+
     while dealerHand.trueScore() < 17
       if dealerHand.trueScore() > 21
         dealerHand.bust()
       else if dealerHand.trueScore() < 17
         dealerHand.hit()
-      else
-        dealerHand.stand()
+
+    if dealerHand.trueScore() < 22
+      dealerHand.stand()
 
     # #while dealer score is less than 17
     # while dealerHand.scores()[0] < 17

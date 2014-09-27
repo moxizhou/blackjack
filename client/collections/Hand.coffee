@@ -6,7 +6,6 @@ class window.Hand extends Backbone.Collection
     @on 'hit', @checkIfBust
 
   stand: ->
-    debugger;
     @trigger 'stand'
   hit: ->
     @add(@deck.pop()).last()
