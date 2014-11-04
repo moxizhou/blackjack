@@ -1,17 +1,57 @@
 .card {
   float: left;
   border: solid 1px black;
-  width: 100px;
+  width: 120px;
   border-radius: 5px;
-  height: 140px;
+  height: 167px;
   margin-right: 20px;
 }
 
 .covered {
-  background-image: url('../img/cards/card-back.png');
-  background-color: black;
+  content: url('../img/card-back.png');
 }
 
 .hand {
   overflow: auto;
+  margin-left: 100px;
+}
+
+body {
+	background-image: url('../img/chip.jpg');
+	color: white;
+}
+
+button {
+	border-top: 1px solid #37ff00;
+  background: #269900;
+  background: -webkit-gradient(linear, left top, left bottom, from(#208a00), to(#269900));
+  background: -webkit-linear-gradient(top, #208a00, #269900);
+  background: -moz-linear-gradient(top, #208a00, #269900);
+  background: -ms-linear-gradient(top, #208a00, #269900);
+  background: -o-linear-gradient(top, #208a00, #269900);
+  padding: 9.5px 19px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  box-shadow: rgba(0,0,0,1) 0 1px 0;
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+  margin-left: 100px;
+  margin-top: 30px;
+
+}
+button:hover {
+  border-top-color: #9de38f;
+  background: #9de38f;
+  color: #636363;
+}
+button:active {
+  border-top-color: #6aff00;
+  background: #6aff00;
 }
