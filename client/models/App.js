@@ -18,7 +18,7 @@ window.App = (function(_super) {
     dealerHand = this.get('dealerHand');
     playerHand.on('bust', (function(_this) {
       return function() {
-        return _this.declareWinner('dealer');
+        return _this.declareWinner('Dealer Wins!');
       };
     })(this));
     playerHand.on('stand', (function(_this) {
@@ -28,7 +28,7 @@ window.App = (function(_super) {
     })(this));
     dealerHand.on('bust', (function(_this) {
       return function() {
-        return _this.declareWinner('player');
+        return _this.declareWinner('Player Wins!');
       };
     })(this));
     return dealerHand.on('stand', (function(_this) {
@@ -70,26 +70,11 @@ window.App = (function(_super) {
   };
 
   App.prototype.declareWinner = function(winner) {
-    if (!alert(winner)) {
-      return window.location.reload();
-    }
-  };
-
-  App.prototype.whoseTurn = function() {
-    var dealerHand, playerHand;
-    playerHand = this.get('playerHand');
-    dealerHand = this.get('dealerHand');
-    if (playerHand.scores()[0] > 21) {
-      return "game over";
-    } else if (dealerHand.scores()[0] > 16 && dealerHand.scores()[1] > 16) {
-      return "game over";
-    } else if (dealerHand.hasCovered()) {
-      return "dealer turn";
-    } else if (dealerHand.scores()[0] < 17 || dealerHand.scores()[1] < 17) {
-      return "dealer turn";
-    } else {
-      return "player's turn";
-    }
+    return setTimeout((function() {
+      if (!alert(winner)) {
+        return window.location.reload();
+      }
+    }), 100);
   };
 
   return App;

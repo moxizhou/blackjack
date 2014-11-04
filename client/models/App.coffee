@@ -9,11 +9,11 @@ class window.App extends Backbone.Model
     playerHand = @get ('playerHand')
     dealerHand = @get ('dealerHand')
     playerHand.on 'bust', =>
-      @declareWinner('dealer')
+      @declareWinner('Dealer Wins!')
     playerHand.on 'stand', =>
       @dealerPlay()
     dealerHand.on 'bust', =>
-      @declareWinner('player')
+      @declareWinner('Player Wins!')
     dealerHand.on 'stand', =>
       winner = @decideWinner()
       @declareWinner(winner)
@@ -44,18 +44,6 @@ class window.App extends Backbone.Model
       return "It's a tie!"
 
   declareWinner: (winner) ->
-    window.location.reload() unless alert(winner)
-
-  whoseTurn: ->
-    playerHand = @get 'playerHand'
-    dealerHand = @get 'dealerHand'
-    if playerHand.scores()[0] > 21
-      return "game over"
-    else if dealerHand.scores()[0] > 16 and dealerHand.scores()[1] > 16
-      return "game over"
-    else if dealerHand.hasCovered()
-      return "dealer turn"
-    else if dealerHand.scores()[0] < 17 or dealerHand.scores()[1] < 17
-      return "dealer turn"
-    else
-      return "player's turn"
+    setTimeout (->
+      window.location.reload()  unless alert(winner)
+    ), 100
